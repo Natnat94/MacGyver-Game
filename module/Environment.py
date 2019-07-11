@@ -2,5 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class Environment:
-    pass
-    
+
+    def __init__ (self):
+        pass
+        

@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 class Graphic:
-    pass
-    
+    def __init__(self):
+        pass
