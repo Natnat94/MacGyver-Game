@@ -39,32 +39,37 @@ class Environment:
         MAX_LENGHT = 16
         guardian = [0,0] #setting the gard variable with the exit of lab position
 
-    def lab_coord (self):
+    def lab_coord (self, level):
         ### Fonction that translate draw maze into coordinate ###
-        wall_coord=[]
-        road_coord=[]
+        wall_coord= []
+        road_coord= []
 
-        for y in range(len(self)):
-            for x in range(len(self[y])):
-                painting = self [y][x]
+        for y in range(len(level)):
+            for x in range(len(level[y])):
+                painting = level [y][x]
                 #print(x,y)
                 if painting == "x":
                     print("/", end="")
                     wall_coord.append([x,y])
+
                 else:
                     print("@", end="")
                     road_coord.append([x,y])
                 ### --- ajouter une condition qui repers la position du gardien --- ###
             print()
 
-    def rand_position (lab_coord):
+        #print(wall_coord)
+
+    #def rand_position (self, wall):
         ### Fonction that randomly place an object in the maze ###
         object_coord = random.sample(road_coord, k=3)
-        print(object_coord)
+        #print(object_coord)
         needle = object_coord[0]
         ether = object_coord[1]
         tube = object_coord[2]
-        print("voici le 1er", needle)
-        print("voici le 2eme", ether)
+        print("voici needle", needle)
+        print("voici ether", ether)
+        print("voici tube", tube)
 
-Environment.lab_coord(level1)
+Envi = Environment()
+Envi.lab_coord(level1)
