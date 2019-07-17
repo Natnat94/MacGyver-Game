@@ -39,25 +39,24 @@ class Environment:
         MAX_LENGHT = 16
         guardian = [0,0] #setting the gard variable with the exit of lab position
 
-    def lab_coord (self, level):
+    def lab_coord (self):
         ### Fonction that translate draw maze into coordinate ###
         wall_coord= []
         road_coord= []
 
-        for y in range(len(level)):
-            for x in range(len(level[y])):
+        for y in range(len(self)):
+            for x in range(len(self[y])):
                 painting = level [y][x]
                 #print(x,y)
                 if painting == "x":
                     print("/", end="")
                     wall_coord.append([x,y])
-
                 else:
                     print("@", end="")
                     road_coord.append([x,y])
                 ### --- ajouter une condition qui repers la position du gardien --- ###
             print()
-
+        return road_coord
         #print(wall_coord)
 
     #def rand_position (self, wall):
@@ -71,5 +70,5 @@ class Environment:
         print("voici ether", ether)
         print("voici tube", tube)
 
-Envi = Environment()
-Envi.lab_coord(level1)
+    def main():
+        Environment.lab_coord(level1)
