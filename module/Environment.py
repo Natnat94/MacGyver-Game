@@ -6,15 +6,14 @@ import random
 
 class Environment:
 
-    def __init__ (self,needle, ether, tube, guardian, wall_coord, road_coord):
-
-    #loading the labyrinth file
-        self.needle = needle #setting the 1st object with null coordinate
-        self.ether = ether #setting the 2nd object with null coordinate
-        self.tube = tube #setting the 3rd object with null coordinate
-        self.guardian = guardian #setting the gard variable with the exit of lab position
-        self.wall_coord = wall_coord
-        self.road_coord = road_coord
+    def __init__ (self):
+    ### loading the labyrinth file ###
+        self.needle = [] #setting the 1st object with null coordinate
+        self.ether = [] #setting the 2nd object with null coordinate
+        self.tube = [] #setting the 3rd object with null coordinate
+        self.guardian = [] #setting the guardian object with null coordinate
+        self.wall_coord = [] #setting the walls object with null coordinate
+        self.road_coord = [] #setting the roads object with null coordinate
 
     def lab_coord (self, level):
         ### Fonction that translate draw maze into coordinate ###
@@ -34,7 +33,7 @@ class Environment:
                     self.road_coord.append([x,y])
             print()
 
-    def rand_position (self, road_coord):
+    def rand_position (self):
         ### Fonction that randomly place an object in the maze ###
         object_coord = random.sample(self.road_coord, k=3)
         self.needle = object_coord[0]
@@ -43,12 +42,6 @@ class Environment:
 
 def main():
     print("voici le niveau :) ")
-    needle = []
-    ether = []
-    tube = []
-    guardian = []
-    wall_coord = []
-    road_coord = []
     runloop = True
     level = [
     "xxxxxxxxxxgxxxx",
@@ -60,16 +53,17 @@ def main():
     "xxx  xxx    xxx",
     "xxx  xxx    xxx",
     "xxxxxxxxxxxxxxx"]
-    content = Environment(needle, ether, tube, guardian, wall_coord, road_coord)
+    content = Environment()
     etat = 1
     while runloop == True and etat > 0:
         content.lab_coord(level)
-        content.rand_position(wall_coord)
-        print("voici la position de l'aiguille {}".format(content.needle))
+        content.rand_position()
+        print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
+            .format(content.needle, content.tube, content.ether))
         print("voici la position du gardien {}".format(content.guardian))
         etat -= 1
     else:
-        print("fin")
+        pass
 
 
 if __name__ == "__main__":
