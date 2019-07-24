@@ -1,13 +1,54 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import module.MacGyver as mc
-import module.Environment as enviro
+import module.MacGyver as macg
+import module.Environment as content
+
+def deco():
+
+    runloop = True
+    mac_position = [3, 5]
+    etat = 100
+    test1= content.Environment()
+    test2 = macg.Macgyver(mac_position, runloop)
+    level = [
+    "xxxxxxxxxxgxxxx",
+    "x             x",
+    "x             x",
+    "x             x",
+    "x             x",
+    "x             x",
+    "x             x",
+    "x             x",
+    "xxxxxxxxxxxxxxx"]
+
+
+    test1.lab_coord(level)
+    test1.rand_position()
+    print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
+        .format(test1.objett[0], test1.objett[1], test1.objett[2]))
+    print("voici la position du gardien {}".format(test1.guardian))
+    wall = test1.wall_coord
+    objet = test1.objett
+    while runloop == True and etat > 0:
+        print("voici la position du héros {}".format(test2.mac_position))
+        direct = input("quelle direction ?")
+        test2.keyboard(direct)
+        test2.move()
+        test2.hit_wall(wall)
+        test2.tools(objet)
+        print(objet)
+        if test2.object_count == 3:
+            runloop = False
+        else:
+            runloop = test2.runloop
+        etat -= 1
+    else:
+        pass
 
 def main():
-
-    enviro.main()
-    mc.main()
+    
+    deco()
     print("fin du programme")
 
 if __name__ == "__main__":
