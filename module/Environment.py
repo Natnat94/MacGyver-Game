@@ -14,14 +14,13 @@ class Environment:
         self.guardian = [] #setting the guardian object with null coordinate
         self.wall_coord = [] #setting the walls object with null coordinate
         self.road_coord = [] #setting the roads object with null coordinate
-
+        self.objett = []
     def lab_coord (self, level):
         ### Fonction that translate draw maze into coordinate ###
         self.level = level
         for y in range(len(self.level)):
             for x in range(len(self.level[y])):
                 painting = level [y][x]
-                #print(x,y)
                 if painting == "x":
                     print("/", end="")
                     self.wall_coord.append([x,y])
@@ -39,10 +38,10 @@ class Environment:
         self.needle = object_coord[0]
         self.ether = object_coord[1]
         self.tube = object_coord[2]
+        self.objett = object_coord
 
 def main():
     print("voici le niveau :) ")
-    runloop = True
     level = [
     "xxxxxxxxxxgxxxx",
     "x    xxx    xxx",
@@ -54,17 +53,13 @@ def main():
     "xxx  xxx    xxx",
     "xxxxxxxxxxxxxxx"]
     content = Environment()
-    etat = 1
-    while runloop == True and etat > 0:
-        content.lab_coord(level)
-        content.rand_position()
-        print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
-            .format(content.needle, content.tube, content.ether))
-        print("voici la position du gardien {}".format(content.guardian))
-        etat -= 1
-    else:
-        pass
-
+    content.lab_coord(level)
+    content.rand_position()
+    print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
+        .format(content.needle, content.tube, content.ether))
+    print("voici la position du gardien {}".format(content.guardian))
+    wall = content.wall_coord
+    print(wall)
 
 if __name__ == "__main__":
     main()
