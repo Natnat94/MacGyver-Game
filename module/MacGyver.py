@@ -4,14 +4,14 @@
 
 class Macgyver:
 
-    def __init__ (self, mac_position, runloop):
-        self.runloop = runloop
+    def __init__ (self, mac_position):
+
         self.mac_position = mac_position
-        self.direction = []
         self.new_mac_position = []
         self.object_count = 0
+        self.new_objet = 0
 
-    def keyboard(self, direct):
+    def keyboard(self, direct): ## HS (fonctionne seul)!!! ##
 
         ### detecte une entrée et deplace le héro( <- à retirer) ###
         self.direct = direct
@@ -23,31 +23,27 @@ class Macgyver:
             self.direction = [0,-1]
         elif self.direct == "x": # deplacement en bas #
             self.direction = [-1,0]
-        elif self.direct == "1": # arret de la boucle #
-            self.runloop = False
         else: # touche non configure #
             print("uniquement les lettres E F S X !!!")
 
-    def move(self):
+    def move(self, direction):
         ### move to new coordinate the hero ###
-        self.new_mac_position = [self.mac_position[i] + self.direction[i] for i in range(len(self.mac_position))]
+        self.new_mac_position = [self.mac_position[i] + direction[i] for i in range(len(self.mac_position))]
 
     def tools(self, objet):
         ### fonction qui determine si on a recuperé un objet ###
         if self.mac_position in objet:
-            self.object_count += 1
-            print(self.object_count)
             objet.remove(self.mac_position)
+            self.object_count += 1
         else:
-            pass
+            self.new_objet = objet
 
     def hit_wall(self, wall):
         ### fonction qui determine si il peut se deplacer dans cette direction ###
         self.wall = wall
         if self.new_mac_position in self.wall:
-            print("mur")
+            pass
         else:
-            print("route")
             self.mac_position = self.new_mac_position
 
 def main():
