@@ -12,7 +12,7 @@ from MacGyver import Macgyver
 def main():
     """Run the game in graphic mode"""
     tool_file = "ether.png"
-    mac_position = [4, 9]
+
     level = [
         "xxxxxxxxxxxgxxx",
         "x      xxx     ",
@@ -27,17 +27,17 @@ def main():
         "xxxx  xxx    xx",
         "xxxx  xxx    xx",
         "xxxx  xxx    xx",
-        "xxxx         xx",
+        "xxxx m       xx",
         "xxxxxxxxxxxxxxx"]
     win = pygame.display.set_mode((600, 600))
-    content = Environment()
+    content = Environment(level)
     graphic = Graphic(win)
-    hero = Macgyver(mac_position)
-    content.lab_coord(level)
+    content.lab_coord()
     content.rand_position()
     wall_coord = content.wall_coord
     needle = content.objett
-    print(content.objett)
+    mac_position = content.mac_position
+    hero = Macgyver(mac_position)
     pygame.init()
     directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     pygame.display.set_caption("                   ---=== MacGyver Maze ===---")
@@ -73,7 +73,7 @@ def main():
         hero.hit_wall(wall_coord)
         hero.tools(needle)
         needle = hero.new_objet
-        print(needle)
+        graphic.draw_guard(directory, content.guardian)
         graphic.draw_cara(directory, hero.mac_position)
         pygame.display.flip()
 
