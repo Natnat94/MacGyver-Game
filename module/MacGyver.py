@@ -3,7 +3,7 @@
 """Module de Macgyver"""
 
 class Macgyver:
-    """Class de Macgyver"""
+    """Class of Macgyver"""
     def __init__(self, mac_position):
         self.mac_position = mac_position
         self.new_mac_position = []
@@ -11,7 +11,7 @@ class Macgyver:
         self.new_objet = 0
 
     def keyboard(self, direct):
-        """detecte une entrée et deplace le héro (en commande uniquement)"""
+        """detect en input and move the hero (command line only)"""
         self.direct = direct
         if self.direct == "e":  # deplacement en haut #
             self.direction = [1, 0]
@@ -29,7 +29,7 @@ class Macgyver:
         self.new_mac_position = [self.mac_position[i] + direction[i] for i in range(len(self.mac_position))]
 
     def tools(self, objet):
-        """fonction qui determine si on a recuperé un objet"""
+        """fonction that check if there is an object and take it"""
         if self.mac_position in objet:
             objet.remove(self.mac_position)
             self.object_count += 1
@@ -37,7 +37,7 @@ class Macgyver:
             self.new_objet = objet
 
     def hit_wall(self, wall):
-        """fonction qui determine si il peut se deplacer dans cette direction"""
+        """fonction that check if there is a wall"""
         self.wall = wall
         if self.new_mac_position in self.wall:
             pass
@@ -46,7 +46,7 @@ class Macgyver:
 
 
 def main():
-    """main fonction pour le testing"""
+    """main fonction for testing"""
     runloop = True
     mac_position = [3, 5]
     etat = 10
