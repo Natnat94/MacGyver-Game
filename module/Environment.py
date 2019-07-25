@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Module Environment"""
 import random
 
 
 class Environment:
-
-    def __init__ (self):
-    ### loading the labyrinth file ###
+    """Classe Environment"""
+    def __init__(self):
+        """loading the labyrinth file"""
         self.needle = [] #setting the 1st object with null coordinate
         self.ether = [] #setting the 2nd object with null coordinate
         self.tube = [] #setting the 3rd object with null coordinate
@@ -16,25 +16,25 @@ class Environment:
         self.road_coord = [] #setting the roads object with null coordinate
         self.objett = []
 
-    def lab_coord (self, level):
-        ### Fonction that translate draw maze into coordinate ###
+    def lab_coord(self, level):
+        """Fonction that translate draw maze into coordinate"""
         self.level = level
-        for y in range(len(self.level)):
-            for x in range(len(self.level[y])):
-                painting = level [y][x]
+        for i in range(len(self.level)):
+            for j in range(len(self.level[i])):
+                painting = level[i][j]
                 if painting == "x":
                     print("/", end="")
-                    self.wall_coord.append([x,y])
+                    self.wall_coord.append([j, i])
                 elif painting == "g":
                     print("g", end="")
-                    self.guardian.append([x,y])
+                    self.guardian.append([j, i])
                 else:
                     print("@", end="")
-                    self.road_coord.append([x,y])
+                    self.road_coord.append([j, i])
             print()
 
-    def rand_position (self):
-        ### Fonction that randomly place an object in the maze ###
+    def rand_position(self):
+        """Fonction that randomly place an object in the maze"""
         object_coord = random.sample(self.road_coord, k=3)
         self.needle = object_coord[0]
         self.ether = object_coord[1]
@@ -42,31 +42,30 @@ class Environment:
         self.objett = object_coord
 
 def main():
+    """main fonction pour le testing"""
     print("voici le niveau :) ")
     level = [
-    "xxxxxxxxxxgxxxx",
-    "x    xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx         xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxxxxxxxxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx  xxx    xxx",
-    "xxx         xxx",
-    "xxxxxxxxxxxxxxx"]
+        "xxxxxxxxxxgxxxx",
+        "x    xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx         xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxxxxxxxxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx  xxx    xxx",
+        "xxx         xxx",
+        "xxxxxxxxxxxxxxx"]
     content = Environment()
     content.lab_coord(level)
     content.rand_position()
     print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
         .format(content.needle, content.tube, content.ether))
     print("voici la position du gardien {}".format(content.guardian))
-    wall = content.wall_coord
-    print(wall)
 
 if __name__ == "__main__":
     main()
