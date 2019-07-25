@@ -15,6 +15,7 @@ class Environment:
         self.wall_coord = [] #setting the walls object with null coordinate
         self.road_coord = [] #setting the roads object with null coordinate
         self.objett = []
+
     def lab_coord (self, level):
         ### Fonction that translate draw maze into coordinate ###
         self.level = level
@@ -48,9 +49,15 @@ def main():
     "xxx  xxx    xxx",
     "xxx  xxx    xxx",
     "xxx  xxx    xxx",
+    "xxx         xxx",
+    "xxx  xxx    xxx",
+    "xxx  xxx    xxx",
+    "xxx  xxxxxxxxxx",
     "xxx  xxx    xxx",
     "xxx  xxx    xxx",
     "xxx  xxx    xxx",
+    "xxx  xxx    xxx",
+    "xxx         xxx",
     "xxxxxxxxxxxxxxx"]
     content = Environment()
     content.lab_coord(level)
