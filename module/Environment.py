@@ -5,8 +5,8 @@ import random
 
 
 class Environment:
-    """Classe Environment"""
-    def __init__(self):
+    """Classe of Environment"""
+    def __init__(self, level):
         """loading the labyrinth file"""
         self.needle = [] #setting the 1st object with null coordinate
         self.ether = [] #setting the 2nd object with null coordinate
@@ -14,20 +14,24 @@ class Environment:
         self.guardian = [] #setting the guardian object with null coordinate
         self.wall_coord = [] #setting the walls object with null coordinate
         self.road_coord = [] #setting the roads object with null coordinate
+        self.mac_position = [] #setting the hero object with null coordinate
         self.objett = []
-
-    def lab_coord(self, level):
-        """Fonction that translate draw maze into coordinate"""
         self.level = level
+
+    def lab_coord(self):
+        """Fonction that translate draw maze into coordinate"""
         for i in range(len(self.level)):
             for j in range(len(self.level[i])):
-                painting = level[i][j]
+                painting = self.level[i][j]
                 if painting == "x":
                     print("/", end="")
                     self.wall_coord.append([j, i])
                 elif painting == "g":
                     print("g", end="")
-                    self.guardian.append([j, i])
+                    self.guardian = [j, i]
+                elif painting == "m":
+                    print("m", end="")
+                    self.mac_position = [j, i]
                 else:
                     print("@", end="")
                     self.road_coord.append([j, i])
@@ -42,7 +46,7 @@ class Environment:
         self.objett = object_coord
 
 def main():
-    """main fonction pour le testing"""
+    """main fonction for testing"""
     print("voici le niveau :) ")
     level = [
         "xxxxxxxxxxgxxxx",
@@ -60,8 +64,8 @@ def main():
         "xxx  xxx    xxx",
         "xxx         xxx",
         "xxxxxxxxxxxxxxx"]
-    content = Environment()
-    content.lab_coord(level)
+    content = Environment(level)
+    content.lab_coord()
     content.rand_position()
     print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
         .format(content.needle, content.tube, content.ether))
