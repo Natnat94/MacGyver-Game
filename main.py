@@ -8,9 +8,9 @@ def deco():
 
     runloop = True
     mac_position = [3, 5]
-    etat = 100
+    etat = 20
     test1= content.Environment()
-    test2 = macg.Macgyver(mac_position, runloop)
+    test2 = macg.Macgyver(mac_position)
     level = [
     "xxxxxxxxxxgxxxx",
     "x             x",
@@ -34,20 +34,16 @@ def deco():
         print("voici la position du héros {}".format(test2.mac_position))
         direct = input("quelle direction ?")
         test2.keyboard(direct)
-        test2.move()
+        test2.move(test2.direction)
         test2.hit_wall(wall)
         test2.tools(objet)
         print(objet)
         if test2.object_count == 3:
             runloop = False
-        else:
-            runloop = test2.runloop
         etat -= 1
-    else:
-        pass
 
 def main():
-    
+
     deco()
     print("fin du programme")
 
