@@ -6,7 +6,7 @@ import pygame
 
 
 class Graphic:
-    """Class du graphic"""
+    """Class of graphic"""
     def __init__(self, win):
         self.win = win
 
@@ -44,3 +44,10 @@ class Graphic:
         macgyver1 = pygame.transform.scale(macgyver1, (40, 40))
         mac_position = [i * 40 for i in mac_position]  #Fit the position to scale
         self.win.blit(macgyver1, mac_position)
+
+    def draw_guard(self, directory, guard_position):
+        """draw the guard in the maze"""
+        guard1 = pygame.image.load(os.path.join(directory, "ressource", "Gardien.png"))
+        guard1 = pygame.transform.scale(guard1, (40, 40))
+        guard_position = [i * 40 for i in guard_position]  #Fit the position to scale
+        self.win.blit(guard1, guard_position)
