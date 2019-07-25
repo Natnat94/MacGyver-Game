@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from  Graphic import *
-from Environment import *
-from MacGyver import *
+from  Graphic import Graphic
+from Environment import Environment
+from MacGyver import Macgyver
 import pygame
 import os
 
@@ -35,10 +35,9 @@ vel = 40
 needle = content.objett
 print(content.objett)
 pygame.init()
+directory =  os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pygame.display.set_caption("                   ---=== MacGyver Maze ===---")
 win = pygame.display.set_mode((600, 600))
-bg = pygame.image.load(os.path.join("../ressource","floor.png"))
-macgyver1 = pygame.image.load(os.path.join("../ressource","Macgyver.png"))
 
 #needle1 = [i * 40 for i in content.needle]
 
@@ -48,12 +47,12 @@ while run:
     pygame.time.delay(100)
     direction = [0,0]
     obj_count = hero.object_count
-    Graphic.draw_bg(win)
-    Graphic.draw_walls(win, wall_coord)
+    Graphic.draw_bg(win, directory)
+    Graphic.draw_walls(win, directory, wall_coord)
     if obj_count == 3:
         run = False
     if needle != []:
-        Graphic.draw_tools(win, tool_file, needle)
+        Graphic.draw_tools(win, directory, tool_file, needle)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -71,7 +70,7 @@ while run:
     hero.tools(needle)
     needle = hero.new_objet
     print(needle)
-    Graphic.draw_cara(win, hero.mac_position)
+    Graphic.draw_cara(win, directory, hero.mac_position)
     pygame.display.flip()
 
 pygame.quit()

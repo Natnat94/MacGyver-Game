@@ -10,9 +10,9 @@ class Graphic:
         self.tool_file = tool_file
         self.tool_coord = tool_coord
 
-    def draw_bg(win):
+    def draw_bg(win, directory):
         ### draw the background in the maze ###
-        bg1 = pygame.image.load(os.path.join("../ressource","floor.png"))
+        bg1 = pygame.image.load(os.path.join(directory, "ressource","floor.png"))
         backg = pygame.Surface(win.get_size())
         background = backg.convert()
         background.fill((250, 250, 250))
@@ -22,18 +22,18 @@ class Graphic:
         win.blit(background, (0, 0))
         #pygame.display.update()
 
-    def draw_tools(win, tool_file, tool_coord):
+    def draw_tools(win, directory, tool_file, tool_coord):
         ### draw the tools in the maze ###
-        tool = pygame.image.load(os.path.join("../ressource",tool_file))
+        tool = pygame.image.load(os.path.join(directory, "ressource", tool_file))
         tool = pygame.transform.scale(tool, (40, 40))
         for i in tool_coord:
             tool_coord = [c * 40 for c in i] #Fit the position to scale
             win.blit(tool, tool_coord)
         #pygame.display.update()
 
-    def draw_walls(win, wall_coord):
+    def draw_walls(win, directory, wall_coord):
         ### draw the walls in the maze ###
-        wall = pygame.image.load(os.path.join("../ressource","floor.png")).convert()
+        wall = pygame.image.load(os.path.join(directory, "ressource", "floor.png")).convert()
         wall1 = pygame.transform.scale2x(wall)
         for i in wall_coord:
             taille = [40, 40]
@@ -41,9 +41,9 @@ class Graphic:
             win.blit(wall1, new_position, (0, 440, 40,40))
         #pygame.display.update()
 
-    def draw_cara(win, mac_position):
+    def draw_cara(win, directory, mac_position):
         ### draw the hero in the maze ###
-        macgyver1 = pygame.image.load(os.path.join("../ressource","Macgyver.png"))
+        macgyver1 = pygame.image.load(os.path.join(directory, "ressource", "Macgyver.png"))
         macgyver1 = pygame.transform.scale(macgyver1, (40, 40))
         mac_position = [i * 40 for i in mac_position] #Fit the position to scale
         win.blit(macgyver1, mac_position)
