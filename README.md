@@ -19,11 +19,11 @@ Version 0.1:
     - une fonction qui empeche le hero de traverser les murs
 
 Version 0.2:
-* pas de grahique, le terrain se dessine dans l'invité de commande et  
+ * pas de grahique, le terrain se dessine dans l'invité de commande et  
   les positions des objets et celui du hero
-* main.py fonctionne et le hero se deplace et recupere les objets et ne se
+ * main.py fonctionne et le hero se deplace et recupere les objets et ne se
   deplace pas dans les murs
-* arret du jeu apres 100 appuie sur une touche ou la touche "1" ou les
+ * arret du jeu apres 100 appuie sur une touche ou la touche "1" ou les
   3 objets recuperés
 
   ###### Nouvauté ######
@@ -38,14 +38,15 @@ Version 0.2:
 
   --> prochaine étape :
 
-    - definir la position du hero en fonction du dessin du labyrinthe
-    - interface graphique
+      - definir la position du hero en fonction du dessin du labyrinthe
+      - interface graphique
 
 Version 0.3:
   * graphique fonctionne en stand alone
-  * main.py fonctionne (sans graphique) et le hero se deplace et recupere les objets et ne se
-      deplace pas dans les murs (le terrain se dessine dans l'invité de commande et  
-        les positions des objets et celui du hero)
+  * main.py fonctionne (sans graphique) et le hero se deplace et
+      recupere les objets et ne se deplace pas dans les murs
+      (le terrain se dessine dans l'invité de commande et les positions
+      des objets et celui du hero)
   * arret du jeu apres 100 appuie sur une touche ou la touche "1" ou les
       3 objets recuperés (version command)
 
@@ -63,3 +64,26 @@ Version 0.3:
       - definir la position du hero en fonction du dessin du labyrinthe
       - tranformer les fontion du graphic en class
       - lier l'interface graphique au reste des classes
+
+Version 0.3.1:
+  * graphique fonctionne (test.py)
+  * main.py fonctionne (sans graphique) et le hero se deplace et
+      recupere les objets et ne se deplace pas dans les murs
+      (le terrain se dessine dans l'invité de commande et les positions
+      des objets et celui du hero)
+  * arret du jeu apres 20 appuie sur une touche ou les
+      3 objets recuperés (version command)
+
+  ###### Nouvauté ######
+
+      ** le jeux fonction en mode graphique **
+
+  ######          ######
+
+  --> difficulté: importation des modules de maniere plus ergonomique
+
+  --> prochaine étape :
+
+      - definir la position du hero en fonction du dessin du labyrinthe
+      - attribuer une image pour chaque objets
+      - attribuer la position du mechant
