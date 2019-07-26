@@ -87,3 +87,28 @@ Version 0.3.1:
       - definir la position du hero en fonction du dessin du labyrinthe
       - attribuer une image pour chaque objets
       - attribuer la position du mechant
+
+Version 0.3.2:
+  * graphique fonctionne (test.py)
+  * main.py fonctionne (sans graphique) et le hero se deplace et
+      recupere les objets et ne se deplace pas dans les murs
+      (le terrain se dessine dans l'invité de commande et les positions
+      des objets et celui du hero)
+  * arret du jeu apres 20 appuie sur une touche ou les
+      3 objets recuperés (version command)
+
+  ###### Nouvauté ######
+
+      ** definition de la position initiale du hero depuis le dessin
+        du labyrinthe **
+      ** dessin du gardian dans le jeu graphique **
+      ** Verification du standard PEP8 sur tout les fichiers **
+      ** ajout de la condition pour gagner le jeu **
+  ######          ######
+
+  --> difficulté: aucune
+
+  --> prochaine étape :
+
+      - attribuer une image pour chaque objets
+      - lecture du labyrinthe a partir d'un fichier separé
