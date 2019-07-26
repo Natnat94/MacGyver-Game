@@ -36,11 +36,15 @@ class Macgyver:
         else:
             self.new_objet = objet
 
-    def hit_wall(self, wall):
+    def hit_wall(self, wall, guard):
         """fonction that check if there is a wall"""
         self.wall = wall
+        self.guard = guard
         if self.new_mac_position in self.wall:
             pass
+        elif self.new_mac_position == self.guard:
+            if self.object_count == 3:
+                self.mac_position = self.new_mac_position
         else:
             self.mac_position = self.new_mac_position
 
