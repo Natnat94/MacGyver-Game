@@ -13,25 +13,10 @@ def main():
     """Run the game in graphic mode"""
     tool_file = "ether.png"
 
-    level = [
-        "xxxxxxxxxxxgxxx",
-        "x      xxx     ",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx         xx",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx  xxxx  xxx",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx  xxx    xx",
-        "xxxx m       xx",
-        "xxxxxxxxxxxxxxx"]
     win = pygame.display.set_mode((600, 600))
-    content = Environment(level)
+    content = Environment()
     graphic = Graphic(win)
+    content.read_file("Labyrinthe.txt")
     content.lab_coord()
     content.rand_position()
     wall_coord = content.wall_coord

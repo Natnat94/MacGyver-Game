@@ -6,7 +6,7 @@ import random
 
 class Environment:
     """Classe of Environment"""
-    def __init__(self, level):
+    def __init__(self):
         """loading the labyrinth file"""
         self.needle = [] #setting the 1st object with null coordinate
         self.ether = [] #setting the 2nd object with null coordinate
@@ -16,8 +16,13 @@ class Environment:
         self.road_coord = [] #setting the roads object with null coordinate
         self.mac_position = [] #setting the hero object with null coordinate
         self.objett = []
-        self.level = level
+        self.level =""
 
+    def read_file(self, file_to_read):
+        """Fonction that read the file and transform it to a list"""
+        with open(file_to_read, "r") as text:
+            self.level = text.read().splitlines()
+            
     def lab_coord(self):
         """Fonction that translate draw maze into coordinate"""
         for i in range(len(self.level)):
@@ -48,23 +53,7 @@ class Environment:
 def main():
     """main fonction for testing"""
     print("voici le niveau :) ")
-    level = [
-        "xxxxxxxxxxgxxxx",
-        "x    xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx         xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxxxxxxxxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx  xxx    xxx",
-        "xxx         xxx",
-        "xxxxxxxxxxxxxxx"]
-    content = Environment(level)
+    content = Environment()
     content.lab_coord()
     content.rand_position()
     print("voici la position de l'aiguille {}, du tube {} et l'ether {}"

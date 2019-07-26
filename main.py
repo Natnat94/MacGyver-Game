@@ -1,36 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-import module.MacGyver as macg
-import module.Environment as content
+import os
+from module.MacGyver import Macgyver
+from module.Environment import Environment
 
 def deco():
 
     runloop = True
     mac_position = [3, 5]
     etat = 20
-    test1= content.Environment()
-    test2 = macg.Macgyver(mac_position)
-    level = [
-    "xxxxxxxxxxgxxxx",
-    "x             x",
-    "x             x",
-    "x             x",
-    "x             x",
-    "x             x",
-    "x             x",
-    "x             x",
-    "xxxxxxxxxxxxxxx"]
-
-
-    test1.lab_coord(level)
+    test1= Environment()
+    test2 = Macgyver(mac_position)
+    directory = os.path.dirname(os.path.abspath(__file__))
+    path_to_file = os.path.join(directory, "module", "Labyrinthe.txt")
+    test1.read_file(path_to_file)
+    test1.lab_coord()
     test1.rand_position()
     print("voici la position de l'aiguille {}, du tube {} et l'ether {}"
         .format(test1.objett[0], test1.objett[1], test1.objett[2]))
     print("voici la position du gardien {}".format(test1.guardian))
     wall = test1.wall_coord
     objet = test1.objett
-    while runloop == True and etat > 0:
+    while runloop and etat > 0:
         print("voici la position du héros {}".format(test2.mac_position))
         direct = input("quelle direction ?")
         test2.keyboard(direct)
