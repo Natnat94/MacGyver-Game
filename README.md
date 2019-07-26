@@ -2,7 +2,7 @@
 
 
 
-Version 0.1:
+**Version 0.1:**
 
   * pas de grahique, le terrain se dessine dans l'invité de commande et les
     les positions des objet et celui du hero
@@ -10,15 +10,16 @@ Version 0.1:
   * l'environnement se charge et les 3 objets sont positioner aleatoirement
   * arret du jeu apres 10 appuie sur une touche ou la touche "1"
 
---> difficulté: mettre a jour l'affichage non grahique avec le deplacement
-      du héro et des objets
+  ### difficulté:
+    mettre a jour l'affichage non grahique avec le deplacement du héro et des objets
 
---> prochaine étape :
+  ### prochaine étape :
 
-    - donner la fonction au hero de rammasser des objets
-    - une fonction qui empeche le hero de traverser les murs
+      - donner la fonction au hero de rammasser des objets
+      - une fonction qui empeche le hero de traverser les murs
 
-Version 0.2:
+**Version 0.2:**
+
  * pas de grahique, le terrain se dessine dans l'invité de commande et  
   les positions des objets et celui du hero
  * main.py fonctionne et le hero se deplace et recupere les objets et ne se
@@ -26,17 +27,17 @@ Version 0.2:
  * arret du jeu apres 100 appuie sur une touche ou la touche "1" ou les
   3 objets recuperés
 
-  ###### Nouvauté ######
-  ** ajout de la fonction de recuperation des objets
-  ** ajout de la fonction qui determine si le hero rencontre un mur
-  ** nettoyage du code dans Environment.py
-  ** re-codage de main.py afin de faire fonctionner les 2 modules ensemble
-  ######          ######
+  ### Nouvauté:
+  1. ajout de la fonction de recuperation des objets
+  2. ajout de la fonction qui determine si le hero rencontre un mur
+  3. nettoyage du code dans Environment.py
+  4. re-codage de main.py afin de faire fonctionner les 2 modules ensemble
 
-  --> difficulté: utilisation de la fonction super() pour recuperé un attribut
-  d'une class parente
 
-  --> prochaine étape :
+  ### difficulté:
+    utilisation de la fonction super() pour recuperé un attribut d'une class parente
+
+  ### prochaine étape :
 
       - definir la position du hero en fonction du dessin du labyrinthe
       - interface graphique
@@ -112,3 +113,24 @@ Version 0.3.2:
 
       - attribuer une image pour chaque objets
       - lecture du labyrinthe a partir d'un fichier separé
+
+Version 0.3.3:
+  * graphique fonctionne (test.py)
+  * (HS pour le moment) main.py fonctionne (sans graphique) et le hero se deplace et
+      recupere les objets et ne se deplace pas dans les murs
+      (le terrain se dessine dans l'invité de commande et les positions
+      des objets et celui du hero)
+  * arret du jeu apres 20 appuie sur une touche ou les
+      3 objets recuperés (version command)
+
+  ###### Nouvauté ######
+
+      ** le labyrinthe est chargé depuis un fichier texte **
+
+  ######          ######
+
+  --> difficulté: aucune
+
+  --> prochaine étape :
+
+      - attribuer une image pour chaque objets
