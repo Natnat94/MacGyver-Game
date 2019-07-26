@@ -54,7 +54,9 @@ def main():
         graphic.draw_bg(directory)
         graphic.draw_walls(directory, wall_coord)
         if obj_count == 3:
-            run = False
+            if hero.mac_position == content.guardian:
+                print("winner !!")
+                run = False
         if needle != []:
             graphic.draw_tools(directory, tool_file, needle)
         for event in pygame.event.get():
@@ -70,7 +72,7 @@ def main():
         if keys[pygame.K_DOWN]:
             direction = [0, 1]
         hero.move(direction)
-        hero.hit_wall(wall_coord)
+        hero.hit_wall(wall_coord, content.guardian)
         hero.tools(needle)
         needle = hero.new_objet
         graphic.draw_guard(directory, content.guardian)
