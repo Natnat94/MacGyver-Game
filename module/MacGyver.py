@@ -1,74 +1,77 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Module de Macgyver"""
 
 class Macgyver:
-
-    def __init__ (self, mac_position, runloop):
-        self.runloop = runloop
+    """Class of Macgyver"""
+    def __init__(self, mac_position):
         self.mac_position = mac_position
-        self.direction = []
         self.new_mac_position = []
         self.object_count = 0
+        self.new_objet = 0
 
     def keyboard(self, direct):
-
-        ### detecte une entrée et deplace le héro( <- à retirer) ###
+        """detect en input and move the hero (command line only)"""
         self.direct = direct
-        if self.direct == "e": # deplacement en haut #
-            self.direction = [1,0]
-        elif self.direct == "f": # deplacement a droite #
-            self.direction = [0,1]
-        elif self.direct == "s": # deplacement a gauche #
-            self.direction = [0,-1]
-        elif self.direct == "x": # deplacement en bas #
-            self.direction = [-1,0]
-        elif self.direct == "1": # arret de la boucle #
-            self.runloop = False
-        else: # touche non configure #
+        if self.direct == "e":  # deplacement en haut #
+            self.direction = [1, 0]
+        elif self.direct == "f":  # deplacement a droite #
+            self.direction = [0, 1]
+        elif self.direct == "s":  # deplacement a gauche #
+            self.direction = [0, -1]
+        elif self.direct == "x":  # deplacement en bas #
+            self.direction = [-1, 0]
+        else:  # touche non configure #
             print("uniquement les lettres E F S X !!!")
 
-    def move(self):
-        ### move to new coordinate the hero ###
-        self.new_mac_position = [self.mac_position[i] + self.direction[i] for i in range(len(self.mac_position))]
+    def move(self, direction):
+        """move to new coordinate the hero"""
+        self.new_mac_position = [self.mac_position[i] + direction[i] for i in range(len(self.mac_position))]
 
     def tools(self, objet):
-        ### fonction qui determine si on a recuperé un objet ###
-        if self.mac_position in objet:
+        """fonction that check if there is an object and take it"""
+        if self.mac_position in objet.values(): #check if the position is in the dictionary
+            delete = []
+            for key, val in objet.items():  #loop for removing the object position in the dictionary
+                if val == self.mac_position:
+                    delete.append(key)
+            for i in delete:
+                del objet[i]
             self.object_count += 1
-            print(self.object_count)
-            objet.remove(self.mac_position)
         else:
-            pass
+            self.new_objet = objet
 
-    def hit_wall(self, wall):
-        ### fonction qui determine si il peut se deplacer dans cette direction ###
+    def hit_wall(self, wall, guard):
+        """fonction that check if there is a wall"""
         self.wall = wall
+        self.guard = guard
         if self.new_mac_position in self.wall:
-            print("mur")
+            pass
+        elif self.new_mac_position == self.guard:
+            if self.object_count == 3:
+                self.mac_position = self.new_mac_position
         else:
-            print("route")
             self.mac_position = self.new_mac_position
 
+
 def main():
+    """main fonction for testing"""
     runloop = True
     mac_position = [3, 5]
     etat = 10
-    objet = [[7, 6], [6, 6], [5,6]]
-    wall = [0,0]
-    mac = Macgyver(mac_position, runloop)
+    objet = [[7, 6], [6, 6], [5, 6]]
+    wall = [0, 0]
+    mac = Macgyver(mac_position)
 
-    while runloop == True and etat > 0:
+    while runloop and etat > 0:
         print("voici la position du héros {}".format(mac.mac_position))
         direct = input("quelle direction ?")
         mac.keyboard(direct)
-        mac.move()
+        mac.move(mac.direction)
+        mac.direction = [0, 0]
         mac.hit_wall(wall)
         mac.tools(objet)
-        runloop = mac.runloop
         etat -= 1
-    else:
-        pass
 
 if __name__ == "__main__":
     main()
