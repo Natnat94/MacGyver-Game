@@ -21,13 +21,13 @@ class Graphic:
                 background.blit(bg1, (i*80, j*20), (0, 60, 80, 20))
         self.win.blit(background, (0, 0))
 
-    def draw_tools(self, directory, tool_file, tool_coord):
+    def draw_tools(self, directory, tool_coord):
         """draw the tools in the maze"""
-        tool = pygame.image.load(os.path.join(directory, "ressource", tool_file))
-        tool = pygame.transform.scale(tool, (40, 40))
-        for i in tool_coord:
-            tool_coord = [c * 40 for c in i]  #Fit the position to scale
-            self.win.blit(tool, tool_coord)
+        for key, value in tool_coord.items():
+            value = [c * 40 for c in value]  #Fit the position to scale
+            tool = pygame.image.load(os.path.join(directory, "ressource", key))
+            tool = pygame.transform.scale(tool, (40, 40))
+            self.win.blit(tool, value)
 
     def draw_walls(self, directory, wall_coord):
         """draw the walls in the maze"""
