@@ -46,7 +46,7 @@ def main():
                 print("winner !!")
                 run = False
         if needle != []:
-            graphic.draw_tools(directory, tool_file, needle)
+            graphic.draw_tools(directory, needle)
             #checking for an exit game input
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
