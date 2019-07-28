@@ -17,6 +17,7 @@ class Environment:
         self.mac_position = [] #setting the hero object with null coordinate
         self.objett = []
         self.level = ""
+        self.names = ["ether.png", "needle.png", "tube.png"]
 
     def read_file(self, file_to_read):
         """Fonction that read the file and transform it to a list"""
@@ -45,10 +46,9 @@ class Environment:
     def rand_position(self):
         """Fonction that randomly place an object in the maze"""
         object_coord = random.sample(self.road_coord, k=3)
-        self.needle = object_coord[0]
-        self.ether = object_coord[1]
-        self.tube = object_coord[2]
-        self.objett = object_coord
+        dico_objects = dict(zip(self.names, object_coord))
+        self.objett = dico_objects
+
 
 def main():
     """main fonction for testing"""
