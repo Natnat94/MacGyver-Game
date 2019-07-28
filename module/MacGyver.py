@@ -30,8 +30,13 @@ class Macgyver:
 
     def tools(self, objet):
         """fonction that check if there is an object and take it"""
-        if self.mac_position in objet:
-            objet.remove(self.mac_position)
+        if self.mac_position in objet.values(): #check if the position is in the dictionary
+            delete = []
+            for key, val in objet.items():  #loop for removing the object position in the dictionary
+                if val == self.mac_position:
+                    delete.append(key)
+            for i in delete:
+                del objet[i]
             self.object_count += 1
         else:
             self.new_objet = objet
