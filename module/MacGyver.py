@@ -12,21 +12,21 @@ class Macgyver:
 
     def keyboard(self, direct):
         """detect en input and move the hero (command line only)"""
-        self.direct = direct
-        if self.direct == "e":  # deplacement en haut #
-            self.direction = [1, 0]
-        elif self.direct == "f":  # deplacement a droite #
-            self.direction = [0, 1]
-        elif self.direct == "s":  # deplacement a gauche #
+        if direct == "e":  # deplacement en haut #
             self.direction = [0, -1]
-        elif self.direct == "x":  # deplacement en bas #
+        elif direct == "f":  # deplacement a droite #
+            self.direction = [1, 0]
+        elif direct == "s":  # deplacement a gauche #
             self.direction = [-1, 0]
+        elif direct == "x":  # deplacement en bas #
+            self.direction = [0, 1]
         else:  # touche non configure #
             print("uniquement les lettres E F S X !!!")
 
     def move(self, direction):
         """move to new coordinate the hero"""
-        self.new_mac_position = [self.mac_position[i] + direction[i] for i in range(len(self.mac_position))]
+        self.new_mac_position = [self.mac_position[i] + direction[i] for i \
+          in range(len(self.mac_position))]
 
     def tools(self, objet):
         """fonction that check if there is an object and take it"""
@@ -43,11 +43,9 @@ class Macgyver:
 
     def hit_wall(self, wall, guard):
         """fonction that check if there is a wall"""
-        self.wall = wall
-        self.guard = guard
-        if self.new_mac_position in self.wall:
+        if self.new_mac_position in wall:
             pass
-        elif self.new_mac_position == self.guard:
+        elif self.new_mac_position == guard:
             if self.object_count == 3:
                 self.mac_position = self.new_mac_position
         else:
