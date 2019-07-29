@@ -21,7 +21,7 @@ def main():
     content.rand_position()
         #setting the inloop game variables
     wall_coord = content.wall_coord
-    needle = content.objett
+    needle = content.objects
     mac_position = content.mac_position
     hero = Macgyver(mac_position)
         #initializing the game
@@ -83,10 +83,10 @@ def test():
     content.rand_position()
     mac_position = content.mac_position
     hero = Macgyver(mac_position)
-    print("voici la position des objets {}".format(content.objett))
+    print("voici la position des objets {}".format(content.objects))
     print("voici la position du gardien {}".format(content.guardian))
     wall = content.wall_coord
-    objet = content.objett
+    objet = content.objects
     while runloop and etat > 0:
         print("voici la position du héros {}".format(hero.mac_position))
         direct = input("quelle direction ?")

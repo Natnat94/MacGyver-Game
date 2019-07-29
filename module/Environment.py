@@ -8,14 +8,11 @@ class Environment:
     """Classe of Environment"""
     def __init__(self):
         """loading the labyrinth file"""
-        self.needle = [] #setting the 1st object with null coordinate
-        self.ether = [] #setting the 2nd object with null coordinate
-        self.tube = [] #setting the 3rd object with null coordinate
-        self.guardian = [] #setting the guardian object with null coordinate
-        self.wall_coord = [] #setting the walls object with null coordinate
-        self.road_coord = [] #setting the roads object with null coordinate
-        self.mac_position = [] #setting the hero object with null coordinate
-        self.objett = []
+        self.guardian = [] #setting the guardian variable with null coordinate
+        self.wall_coord = [] #setting the wall variable with null coordinate
+        self.road_coord = [] #setting the roads variable with null coordinate
+        self.mac_position = [] #setting the hero variable with null coordinate
+        self.objects = []
         self.level = ""
         self.names = ["ether.png", "needle.png", "tube.png"]
 
@@ -31,23 +28,23 @@ class Environment:
                 painting = self.level[i][j]
                 if painting == "x":
                     print("/", end="")
-                    self.wall_coord.append([j, i])
+                    self.wall_coord.append([j-1, i-1])
                 elif painting == "g":
                     print("g", end="")
-                    self.guardian = [j, i]
+                    self.guardian = [j-1, i-1]
                 elif painting == "m":
                     print("m", end="")
-                    self.mac_position = [j, i]
+                    self.mac_position = [j-1, i-1]
                 else:
                     print("@", end="")
-                    self.road_coord.append([j, i])
+                    self.road_coord.append([j-1, i-1])
             print()
 
     def rand_position(self):
         """Fonction that randomly place an object in the maze"""
         object_coord = random.sample(self.road_coord, k=3)
         dico_objects = dict(zip(self.names, object_coord))
-        self.objett = dico_objects
+        self.objects = dico_objects
 
 
 def main():
@@ -56,10 +53,7 @@ def main():
     content = Environment()
     content.lab_coord()
     content.rand_position()
-    print("voici la position de l'aiguille {}".format(content.needle))
-    print("voici la position du tube {}".format(content.tube))
-    print("voici la position de l'ether {}".format(content.ether))
-    print("voici la position du gardien {}".format(content.guardian))
+    print("voici la position des objets {}".format(content.objects))
 
 if __name__ == "__main__":
     main()
