@@ -2,7 +2,7 @@
 
 
 
-**Version 0.1:**
+##**Version 0.1:**
 
   * pas de grahique, le terrain se dessine dans l'invité de commande et les
     les positions des objet et celui du hero
@@ -18,7 +18,7 @@
       - donner la fonction au hero de rammasser des objets
       - une fonction qui empeche le hero de traverser les murs
 
-**Version 0.2:**
+##**Version 0.2:**
 
  * pas de grahique, le terrain se dessine dans l'invité de commande et  
   les positions des objets et celui du hero
@@ -42,7 +42,7 @@
       - definir la position du hero en fonction du dessin du labyrinthe
       - interface graphique
 
-**Version 0.3:**
+##**Version 0.3:**
   * graphique fonctionne en stand alone
   * main.py fonctionne (sans graphique) et le hero se deplace et
       recupere les objets et ne se deplace pas dans les murs
@@ -66,7 +66,7 @@
       - tranformer les fontion du graphic en class
       - lier l'interface graphique au reste des classes
 
-**Version 0.3.1:**
+##**Version 0.3.1:**
   * graphique fonctionne (test.py)
   * main.py fonctionne (sans graphique) et le hero se deplace et
       recupere les objets et ne se deplace pas dans les murs
@@ -89,7 +89,7 @@
       - attribuer une image pour chaque objets
       - attribuer la position du mechant
 
-**Version 0.3.2:**
+##**Version 0.3.2:**
   * graphique fonctionne (test.py)
   * main.py fonctionne (sans graphique) et le hero se deplace et
       recupere les objets et ne se deplace pas dans les murs
@@ -114,14 +114,13 @@
       - attribuer une image pour chaque objets
       - lecture du labyrinthe a partir d'un fichier separé
 
-**Version 0.3.3:**
+##**Version 0.3.3:**
   * graphique fonctionne (test.py)
   * (HS pour le moment) main.py fonctionne (sans graphique) et le hero se deplace et
       recupere les objets et ne se deplace pas dans les murs
       (le terrain se dessine dans l'invité de commande et les positions
       des objets et celui du hero)
-  * arret du jeu apres 20 appuie sur une touche ou les
-      3 objets recuperés (version command)
+  * arret du jeu apres 20 appuie sur une touche ou les 3 objets recuperés (version command)
 
   ### Nouvauté:
 
@@ -130,8 +129,22 @@
 
 
   ### difficulté:
-    detecter la clé a partir d'une valeur dans un dicitionnaire et retirer la position d'un objet recuperé dans le dictionnaire des objets
+    detecter la clé a partir d'une valeur dans un dicitionnaire et retirer la positon d'un objet recuperé dans le dictionnaire des objets
 
   ### prochaine étape:
-        - envirennement virtuel
-        - nettoyage du code
+        - demarrage du jeu a partir de main.py
+        - nettoyage du code      
+
+##**Version 0.3.4:**
+  * le jeu fonctionne dans les 2 modes (graphique et non-graphique)
+  * arret du jeu apres 20 appuie sur une touche ou les 3 objets recuperés (version command)
+
+  ### Nouvauté:
+
+  1. le jeux demarre a partir de main.py uniquement **
+
+  ### difficulté:
+
+  ### prochaine étape:
+        - amelioration du code
+        - mise en page de readme
