@@ -3,9 +3,9 @@
 """Main module"""
 import os
 import pygame
-from module.Graphic import Graphic
-from module.Environment import Environment
-from module.MacGyver import Macgyver
+from module.graphic import Graphic
+from module.environment import Environment
+from module.macgyver import Macgyver
 
 def main():
     """Run the game in graphic mode"""
