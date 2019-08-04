@@ -7,6 +7,7 @@ from module.graphic import Graphic
 from module.environment import Environment
 from module.macgyver import Macgyver
 
+
 def main():
     """Run the game in graphic mode"""
         #setting the variables

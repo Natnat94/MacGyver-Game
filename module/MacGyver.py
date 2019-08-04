@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """Module de Macgyver"""
 
+
 class Macgyver:
     """Class of Macgyver"""
     def __init__(self, mac_position):
