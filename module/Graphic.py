@@ -51,3 +51,19 @@ class Graphic:
         guard1 = pygame.transform.scale(guard1, (40, 40))
         guard_position = [i * 40 for i in guard_position]  #Fit the position to scale
         self.win.blit(guard1, guard_position)
+
+    def draw_win(self, directory):
+        """draw a win text"""
+        winner = pygame.image.load(os.path.join(directory, "ressource", "trophy.png"))
+        background = pygame.Surface(self.win.get_size())
+        background = background.convert()
+        winner = pygame.transform.scale(winner, (600, 600))
+        background.blit(winner, (0, 0))
+        if pygame.font:
+            font = pygame.font.Font(None, 42)
+            text = font.render("Congratulations you saved him !!!", 1, (10, 10, 10))
+            textpos = text.get_rect(centerx=background.get_width()/2)
+            textpos = textpos.move(0, 50)
+            background.blit(text, textpos)
+        self.win.blit(background, (0, 0))
+        pygame.display.flip()

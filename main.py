@@ -42,6 +42,7 @@ def main():
             if hero.mac_position == content.guardian:
                 print("winner !!")
                 run = False
+                fin = True
         if needle != []:
             graphic.draw_tools(directory, needle)
             #checking for an exit game input
@@ -68,6 +69,15 @@ def main():
         graphic.draw_cara(directory, hero.mac_position)
         pygame.display.flip()
 
+        # display a win message loop
+    while fin:
+        pygame.time.Clock().tick(30)
+        pygame.time.delay(100)
+        graphic.draw_win(directory)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                fin = False
+        pygame.display.flip()
         #exiting the game
     pygame.quit()
 
