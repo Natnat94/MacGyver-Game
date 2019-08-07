@@ -25,21 +25,21 @@ class Environment:
         """Fonction that translate draw maze into coordinate"""
         for i in range(len(self.level)):
             for j in range(len(self.level[i])):
-                painting = self.level[i][j]
+                painting = self.level[i][j] # changer a partir de ici pour que ce soit fit to scale
                 if painting == "x":
                     print("/", end="")
-                    self.wall_coord.append([j-1, i-1])
+                    self.wall_coord.append([(j-1)*40, (i-1)*40])
                 elif painting == "g":
                     print("g", end="")
-                    self.guardian = [j-1, i-1]
+                    self.guardian = [(j-1)*40, (i-1)*40]
                 elif painting == "m":
                     print("m", end="")
-                    self.mac_position = [j-1, i-1]
+                    self.mac_position = [(j-1)*40, (i-1)*40]
                 else:
                     print("@", end="")
-                    self.road_coord.append([j-1, i-1])
+                    self.road_coord.append([(j-1)*40, (i-1)*40])
             print()
-
+            
     def rand_position(self):
         """Fonction that randomly place an object in the maze"""
         object_coord = random.sample(self.road_coord, k=3)

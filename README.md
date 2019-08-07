@@ -35,31 +35,31 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 ### Version 0.1:
 
   * pas de grahique, le terrain se dessine dans l'invité de commande et les
-    les positions des objet et celui du hero
-  * main.py fonctionne et le hero se deplace
+    les positions des objet et celui du héros
+  * main.py fonctionne et le héros se deplace
   * l'environnement se charge et les 3 objets sont positioner aleatoirement
   * arret du jeu apres 10 appuie sur une touche ou la touche "1"
 
 ### Version 0.2:
 
   1. ajout de la fonction de recuperation des objets
-  2. ajout de la fonction qui determine si le hero rencontre un mur
+  2. ajout de la fonction qui determine si le héros rencontre un mur
   3. nettoyage du code dans Environment.py
   4. re-codage de main.py afin de faire fonctionner les 2 modules ensemble
 
 ### Version 0.3:
 
   1. ajout du graphique en stand alone
-  2. ajout des fonctions qui dessine l'arriere plan, les murs, le hero, les outils
-  3. ajout de la fonction deplacement du hero en graphique (stand alone)
+  2. ajout des fonctions qui dessine l'arriere plan, les murs, le héros, les outils
+  3. ajout de la fonction deplacement du héros en graphique (stand alone)
 
 ### Version 0.4:
 
-  1. le jeux fonction en mode graphique
+  1. le jeu fonction en mode graphique
 
 ### Version 0.5:
 
-  1. definition de la position initiale du hero depuis le dessin
+  1. definition de la position initiale du héros depuis le dessin
         du labyrinthe
   2. dessin du gardian dans le jeu graphique
   3. Verification du standard PEP8 sur tout les fichiers
@@ -72,11 +72,11 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ### Version 0.7:
 
-  1. le jeux demarre a partir de main.py uniquement
+  1. le jeu demarre a partir de main.py uniquement
 
 ### Version 1.0:
 
-  1. le jeux peux demarrer soit en mode graphique soit en mode commande
+  1. le jeu peux demarrer soit en mode graphique soit en mode commande
   2. ajout d'un ecran de fin
 
 ## To-Do list

@@ -24,7 +24,6 @@ class Graphic:
     def draw_tools(self, directory, tool_coord):
         """draw the tools in the maze"""
         for key, value in tool_coord.items():
-            value = [c * 40 for c in value]  #Fit the position to scale
             tool = pygame.image.load(os.path.join(directory, "ressource", key))
             tool = pygame.transform.scale(tool, (40, 40))
             self.win.blit(tool, value)
@@ -34,22 +33,18 @@ class Graphic:
         wall = pygame.image.load(os.path.join(directory, "ressource", "floor.png")).convert()
         wall1 = pygame.transform.scale2x(wall)
         for i in wall_coord:
-            taille = [40, 40]
-            new_position = [i[c] * taille[c] for c in range(len(i))]  #fit the position to scale
-            self.win.blit(wall1, new_position, (0, 440, 40, 40))
+            self.win.blit(wall1, i, (0, 440, 40, 40))
 
     def draw_cara(self, directory, mac_position):
         """draw the hero in the maze"""
         macgyver1 = pygame.image.load(os.path.join(directory, "ressource", "Macgyver.png"))
         macgyver1 = pygame.transform.scale(macgyver1, (40, 40))
-        mac_position = [i * 40 for i in mac_position]  #Fit the position to scale
         self.win.blit(macgyver1, mac_position)
 
     def draw_guard(self, directory, guard_position):
         """draw the guard in the maze"""
         guard1 = pygame.image.load(os.path.join(directory, "ressource", "Gardien.png"))
         guard1 = pygame.transform.scale(guard1, (40, 40))
-        guard_position = [i * 40 for i in guard_position]  #Fit the position to scale
         self.win.blit(guard1, guard_position)
 
     def draw_win(self, directory):

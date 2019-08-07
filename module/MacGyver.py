@@ -14,16 +14,16 @@ class Macgyver:
     def keyboard(self, direct):
         """detect en input and move the hero (command line only)"""
         if direct == "e":  # deplacement en haut #
-            self.direction = [0, -1]
+            self.direction = [0, -40]
         elif direct == "f":  # deplacement a droite #
-            self.direction = [1, 0]
+            self.direction = [40, 0]
         elif direct == "s":  # deplacement a gauche #
-            self.direction = [-1, 0]
+            self.direction = [-40, 0]
         elif direct == "x":  # deplacement en bas #
-            self.direction = [0, 1]
+            self.direction = [0, 40]
         else:  # touche non configure #
             print("uniquement les lettres E F S X !!!")
-
+            self.direction = [0, 0]
     def move(self, direction):
         """move to new coordinate the hero"""
         self.new_mac_position = [self.mac_position[i] + direction[i] for i \
