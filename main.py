@@ -10,52 +10,54 @@ from module.macgyver import Macgyver
 
 def main():
     """Run the game in graphic mode"""
-        #setting the variables
-    win = pygame.display.set_mode((600, 600), pygame.RESIZABLE)
+        # Setting the variables
+    win = pygame.display.set_mode((600, 600))
     directory = os.path.dirname(os.path.abspath(__file__))
     path_to_file = os.path.join(directory, "module", "Labyrinthe.txt")
     content = Environment()
-    graphic = Graphic(win)
-        #setting the game structure
+    graphic = Graphic(win, directory)
+        # Setting the game structure
     content.read_file(path_to_file)
     content.lab_coord()
     content.rand_position()
-        #setting the inloop game variables
+        # Setting the inloop game variables
     wall_coord = content.wall_coord
-    needle = content.objects
+    objects = content.objects
     mac_position = content.mac_position
     hero = Macgyver(mac_position)
-        #initializing the game
+        # Initializing the game
     pygame.init()
     pygame.display.set_caption("---=== MacGyver Maze ===---")
     run = True
-    fin = False
-        #game main loop
+    game_won = False
+    game_lose = False
+        # Game main loop
     while run:
         pygame.time.Clock().tick(30)
-        pygame.time.delay(50)
         direction = [0, 0]
         obj_count = hero.object_count
-            #Drawing the game
-        graphic.draw_bg(directory)
-        graphic.draw_walls(directory, wall_coord)
-            #checking if winning condition meet
-        if obj_count == 3:
-            if hero.mac_position == content.guardian:
-                print("winner !!")
+            # Drawing the game
+        graphic.draw_bg()
+        graphic.draw_walls(wall_coord)
+            # Checking if winning condition meet
+        if hero.mac_position == content.guardian:
+            if obj_count == 3:
+                    # Win game
                 run = False
-                fin = True
-        if needle != []:
-            graphic.draw_tools(directory, needle)
-            #checking for an exit game input
+                game_won = True
+                game_lose = False
+            else:
+                    # lose game
+                run = False
+                game_won = False
+                game_lose = True
+        if objects != []:
+            graphic.draw_tools(objects)
+            # Checking for an exit game input
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-            #if event.type == pygame.VIDEORESIZE:
-            #    win = pygame.display.set_mode((event.w, event.h), pygame.RESIZABLE)
-            #    print(event.w)
-            #    print(event.h)
-            #checking for a moving input from the player
+            # Waiting for an user input
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             direction = [-40, 0]
@@ -65,26 +67,30 @@ def main():
             direction = [0, -40]
         if keys[pygame.K_DOWN]:
             direction = [0, 40]
-            #moving the hero if not hitting a wall and grabing object
+            # Moving the hero if not hitting a wall and grabing object
         hero.move(direction)
         hero.hit_wall(wall_coord, content.guardian)
-        hero.tools(needle)
-        needle = hero.new_objet
-            #drawing the guardian & the hero new position
-        graphic.draw_guard(directory, content.guardian)
-        graphic.draw_cara(directory, hero.mac_position)
+        hero.tools(objects)
+        objects = hero.new_objet
+            # Drawing the guardian & the hero new position
+        graphic.draw_guard(content.guardian)
+        graphic.draw_cara(hero.mac_position)
         pygame.display.flip()
-
-        # display a win message loop
-    while fin:
-        pygame.time.Clock().tick(30)
-        pygame.time.delay(100)
-        graphic.draw_win(directory)
+        # Display a win message loop
+    while game_won:
+        graphic.draw_win()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                fin = False
+                game_won = False
         pygame.display.flip()
-        #exiting the game
+        # Display a lose message loop
+    while game_lose:
+        graphic.draw_lose()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_lose = False
+        pygame.display.flip()
+        # Exiting the game
     pygame.quit()
 
 def test():
@@ -95,7 +101,7 @@ def test():
     directory = os.path.dirname(os.path.abspath(__file__))
     path_to_file = os.path.join(directory, "module", "Labyrinthe.txt")
     content.read_file(path_to_file)
-    content.lab_coord()
+    content.lab_coord(True)
     content.rand_position()
     mac_position = content.mac_position
     hero = Macgyver(mac_position)
@@ -123,6 +129,7 @@ if __name__ == "__main__":
     if mode == "1":
         main()
     elif mode == "2":
+        print("debut du mode test")
         test()
     else:
         print("erreur de choix")
