@@ -24,6 +24,7 @@ class Macgyver:
         else:  # touche non configure #
             print("uniquement les lettres E F S X !!!")
             self.direction = [0, 0]
+
     def move(self, direction):
         """move to new coordinate the hero"""
         self.new_mac_position = [self.mac_position[i] + direction[i] for i \
@@ -47,7 +48,7 @@ class Macgyver:
         if self.new_mac_position in wall:
             pass
         elif self.new_mac_position == guard:
-            if self.object_count == 3:
+            if self.object_count >= 1:
                 self.mac_position = self.new_mac_position
         else:
             self.mac_position = self.new_mac_position
