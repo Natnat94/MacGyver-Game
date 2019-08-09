@@ -45,6 +45,8 @@ class Environment:
         object_coord = random.sample(self.road_coord, k=3)
         dico_objects = dict(zip(self.names, object_coord))
         self.objects = dico_objects
+        self.road_coord.append(self.guardian)
+        self.road_coord.append(self.mac_position)
 
 
 def main():
