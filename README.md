@@ -9,7 +9,8 @@ Ils permettront à MacGyver de créer une seringue et d'endormir notre garde.
 ![gif](demo.gif)
 
 Le jeu se joue avec les touches directionnelles.
-
+Si vous touchez le gardien avec moins d'un objet à la main vous mourrez
+Si vous touchez le gardien sans objet, il ne vous tuera
 
 ## Installation
 
@@ -78,6 +79,13 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
   1. le jeu peux demarrer soit en mode graphique soit en mode commande
   2. ajout d'un ecran de fin
+
+### Version 1.1:
+
+  1. Ajout d'un ecran de perdu
+  2. amelioration du code
+  3. Ajout d'une possibilité de perdre
+  4. ajout d'un compteur d'objet
 
 ## To-Do list
 
