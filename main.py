@@ -11,7 +11,7 @@ from module.macgyver import Macgyver
 def main():
     """Run the game in graphic mode"""
         # Setting the variables
-    win = pygame.display.set_mode((600, 600))
+    win = pygame.display.set_mode((600, 640))
     directory = os.path.dirname(os.path.abspath(__file__))
     path_to_file = os.path.join(directory, "module", "Labyrinthe.txt")
     content = Environment()
@@ -23,6 +23,7 @@ def main():
         # Setting the inloop game variables
     wall_coord = content.wall_coord
     objects = content.objects
+    road_coord = content.road_coord
     mac_position = content.mac_position
     hero = Macgyver(mac_position)
         # Initializing the game
@@ -33,12 +34,13 @@ def main():
     game_lose = False
         # Game main loop
     while run:
-        pygame.time.Clock().tick(30)
+        pygame.time.Clock().tick(40)
         direction = [0, 0]
         obj_count = hero.object_count
             # Drawing the game
-        graphic.draw_bg()
+        graphic.draw_bg(road_coord)
         graphic.draw_walls(wall_coord)
+        graphic.draw_counter(obj_count)
             # Checking if winning condition meet
         if hero.mac_position == content.guardian:
             if obj_count == 3:
@@ -78,14 +80,14 @@ def main():
         pygame.display.flip()
         # Display a win message loop
     while game_won:
-        graphic.draw_win()
+        graphic.draw_win("trophy.png")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_won = False
         pygame.display.flip()
         # Display a lose message loop
     while game_lose:
-        graphic.draw_lose()
+        graphic.draw_win("gameover.png")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_lose = False
@@ -125,14 +127,15 @@ def test():
 
 if __name__ == "__main__":
     print("execution du programme principale")
-    mode = input("version graphique (1) ou non-graphique (2) ?")
-    if mode == "1":
-        main()
-    elif mode == "2":
-        print("debut du mode test")
-        test()
-    else:
-        print("erreur de choix")
+    main()
+    #mode = input("version graphique (1) ou non-graphique (2) ?")
+    #if mode == "1":
+    #    main()
+    #elif mode == "2":
+    #    print("debut du mode test")
+    #    test()
+    #else:
+    #    print("erreur de choix")
 
 else:
     print("non non ce n'est pas un module !")
