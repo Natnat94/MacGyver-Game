@@ -6,7 +6,8 @@ import pygame
 from module.graphic import Graphic
 from module.environment import Environment
 from module.macgyver import Macgyver
-from module.config import *
+from module.config import SPRITE, MAX_H, MAX_W
+
 
 def main():
     """Run the game in graphic mode"""
@@ -129,14 +130,15 @@ def test():
 
 if __name__ == "__main__":
     print("execution du programme principale")
-    mode = input("version graphique (1) ou non-graphique (2) ?")
-    if mode == "1":
-        main()
-    elif mode == "2":
-        print("debut du mode test")
-        test()
-    else:
-        print("erreur de choix")
+    main()
+    # mode = input("version graphique (1) ou non-graphique (2) ?")
+    # if mode == "1":
+    #     main()
+    # elif mode == "2":
+    #     print("debut du mode test")
+    #     test()
+    # else:
+    #     print("erreur de choix")
 
 else:
     print("non non ce n'est pas un module !")

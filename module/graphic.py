@@ -3,7 +3,8 @@
 """Module Graphic"""
 import os
 import pygame
-from .config import *
+from .config import SPRITE
+
 
 class Graphic:
     """Class of graphic"""
@@ -31,7 +32,7 @@ class Graphic:
     def draw_cara(self, mac_position):
         """draw the hero into the maze"""
         image = pygame.transform.scale(self._load_image("Macgyver.png"), (SPRITE, SPRITE))
-        self.win.blit(image , mac_position)
+        self.win.blit(image, mac_position)
 
     def draw_guard(self, guard_position):
         """draw the guard into the maze"""

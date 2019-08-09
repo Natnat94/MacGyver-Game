@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """Module Environment"""
 import random
-from .config import *
+from .config import SPRITE
+
 
 class Environment:
     """Classe of Environment"""

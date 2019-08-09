@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Module de Macgyver"""
+from .config import SPRITE
 
 
 class Macgyver:
@@ -32,7 +33,7 @@ class Macgyver:
 
     def tools(self, objet):
         """fonction that check if there is an object and take it"""
-        if self.mac_position in objet.values(): # check if the position is in the dictionary
+        if self.mac_position in objet.values():  # check if the position is in the dictionary
             delete = []
             for key, val in objet.items():  # loop for removing the object position in the dictionary
                 if val == self.mac_position:
