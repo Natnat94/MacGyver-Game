@@ -8,10 +8,10 @@ class Environment:
     """Classe of Environment"""
     def __init__(self):
         """loading the labyrinth file"""
-        self.guardian = [] #setting the guardian variable with null coordinate
-        self.wall_coord = [] #setting the wall variable with null coordinate
-        self.road_coord = [] #setting the roads variable with null coordinate
-        self.mac_position = None #setting the hero variable with null coordinate
+        self.guardian = []
+        self.wall_coord = []
+        self.road_coord = []
+        self.mac_position = None
         self.objects = []
         self.level = None
         self.names = ["ether.png", "needle.png", "tube.png"]
@@ -21,7 +21,7 @@ class Environment:
         with open(file_to_read, "r") as text:
             self.level = text.read().splitlines()
 
-    def lab_coord(self, command = False):
+    def lab_coord(self, command=False):
         """Fonction that translate draw maze into coordinate"""
         for i in range(len(self.level)):
             for j in range(len(self.level[i])):
