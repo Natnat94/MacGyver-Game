@@ -47,15 +47,3 @@ class Environment:
         self.objects = dico_objects
         self.road_coord.append(self.guardian)
         self.road_coord.append(self.mac_position)
-
-
-def main():
-    """main fonction for testing"""
-    print("voici le niveau :) ")
-    content = Environment()
-    content.lab_coord()
-    content.rand_position()
-    print("voici la position des objets {}".format(content.objects))
-
-if __name__ == "__main__":
-    main()

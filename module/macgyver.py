@@ -52,26 +52,3 @@ class Macgyver:
                 self.mac_position = self.new_mac_position
         else:
             self.mac_position = self.new_mac_position
-
-
-def main():
-    """main fonction for testing"""
-    runloop = True
-    mac_position = [3, 5]
-    etat = 10
-    objet = [[7, 6], [6, 6], [5, 6]]
-    wall = [0, 0]
-    mac = Macgyver(mac_position)
-
-    while runloop and etat > 0:
-        print("voici la position du héros {}".format(mac.mac_position))
-        direct = input("quelle direction ?")
-        mac.keyboard(direct)
-        mac.move(mac.direction)
-        mac.direction = [0, 0]
-        mac.hit_wall(wall)
-        mac.tools(objet)
-        etat -= 1
-
-if __name__ == "__main__":
-    main()
