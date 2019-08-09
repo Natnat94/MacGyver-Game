@@ -3,7 +3,7 @@
 """Module Graphic"""
 import os
 import pygame
-
+from .config import *
 
 class Graphic:
     """Class of graphic"""
@@ -30,18 +30,18 @@ class Graphic:
 
     def draw_cara(self, mac_position):
         """draw the hero into the maze"""
-        image = pygame.transform.scale(self._load_image("Macgyver.png"), (40, 40))
+        image = pygame.transform.scale(self._load_image("Macgyver.png"), (SPRITE, SPRITE))
         self.win.blit(image , mac_position)
 
     def draw_guard(self, guard_position):
         """draw the guard into the maze"""
-        image = pygame.transform.scale(self._load_image("Gardien.png"), (40, 40))
+        image = pygame.transform.scale(self._load_image("Gardien.png"), (SPRITE, SPRITE))
         self.win.blit(image, guard_position)
 
     def draw_tools(self, tool_coord):
         """draw the tools into the maze"""
         for key, value in tool_coord.items():
-            image = pygame.transform.scale(self._load_image(key), (40, 40))
+            image = pygame.transform.scale(self._load_image(key), (SPRITE, SPRITE))
             self.win.blit(image, value)
 
     def draw_win(self, picture):
@@ -51,7 +51,7 @@ class Graphic:
 
     def draw_counter(self, obj_count):
         """draw an object counter text"""
-        pygame.draw.rect(self.win, (150, 150, 150), (0, 600, 600, 40))
+        pygame.draw.rect(self.win, (150, 150, 150), (0, 600, 600, SPRITE))
         if pygame.font:
             font = pygame.font.Font(None, 42)
             msg = "Vous avez {} objet(s) sur vous".format(obj_count)

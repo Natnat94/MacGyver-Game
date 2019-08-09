@@ -13,15 +13,15 @@ class Macgyver:
 
     def keyboard(self, direct):
         """detect en input and move the hero (command line only)"""
-        if direct == "e":  # deplacement en haut #
-            self.direction = [0, -40]
-        elif direct == "f":  # deplacement a droite #
-            self.direction = [40, 0]
-        elif direct == "s":  # deplacement a gauche #
-            self.direction = [-40, 0]
-        elif direct == "x":  # deplacement en bas #
-            self.direction = [0, 40]
-        else:  # touche non configure #
+        if direct == "e":  # deplacement en haut
+            self.direction = [0, -SPRITE]
+        elif direct == "f":  # deplacement a droite
+            self.direction = [SPRITE, 0]
+        elif direct == "s":  # deplacement a gauche
+            self.direction = [-SPRITE, 0]
+        elif direct == "x":  # deplacement en bas
+            self.direction = [0, SPRITE]
+        else:  # touche non configure
             print("uniquement les lettres E F S X !!!")
             self.direction = [0, 0]
 
@@ -32,9 +32,9 @@ class Macgyver:
 
     def tools(self, objet):
         """fonction that check if there is an object and take it"""
-        if self.mac_position in objet.values(): #check if the position is in the dictionary
+        if self.mac_position in objet.values(): # check if the position is in the dictionary
             delete = []
-            for key, val in objet.items():  #loop for removing the object position in the dictionary
+            for key, val in objet.items():  # loop for removing the object position in the dictionary
                 if val == self.mac_position:
                     delete.append(key)
             for i in delete:

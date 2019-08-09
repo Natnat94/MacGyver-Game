@@ -6,12 +6,12 @@ import pygame
 from module.graphic import Graphic
 from module.environment import Environment
 from module.macgyver import Macgyver
-
+from module.config import *
 
 def main():
     """Run the game in graphic mode"""
     # Setting the variables
-    win = pygame.display.set_mode((600, 640))
+    win = pygame.display.set_mode((MAX_W, MAX_H))
     directory = os.path.dirname(os.path.abspath(__file__))
     path_to_file = os.path.join(directory, "module", "Labyrinthe.txt")
     content = Environment()
@@ -62,13 +62,13 @@ def main():
         # Waiting for an user input
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            direction = [-40, 0]
+            direction = [-SPRITE, 0]
         if keys[pygame.K_RIGHT]:
-            direction = [40, 0]
+            direction = [SPRITE, 0]
         if keys[pygame.K_UP]:
-            direction = [0, -40]
+            direction = [0, -SPRITE]
         if keys[pygame.K_DOWN]:
-            direction = [0, 40]
+            direction = [0, SPRITE]
         # Moving the hero if not hitting a wall and grabing object
         hero.move(direction)
         hero.hit_wall(wall_coord, content.guardian)

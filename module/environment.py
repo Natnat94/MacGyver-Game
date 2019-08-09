@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Module Environment"""
 import random
-
+from .config import *
 
 class Environment:
     """Classe of Environment"""
@@ -28,16 +28,16 @@ class Environment:
                 painting = self.level[i][j]
                 if painting == "x":
                     if command: print("/", end="")
-                    self.wall_coord.append([(j-1)*40, (i-1)*40])
+                    self.wall_coord.append([(j-1)*SPRITE, (i-1)*SPRITE])
                 elif painting == "g":
                     if command: print("g", end="")
-                    self.guardian = [(j-1)*40, (i-1)*40]
+                    self.guardian = [(j-1)*SPRITE, (i-1)*SPRITE]
                 elif painting == "m":
                     if command: print("m", end="")
-                    self.mac_position = [(j-1)*40, (i-1)*40]
+                    self.mac_position = [(j-1)*SPRITE, (i-1)*SPRITE]
                 else:
                     if command: print("@", end="")
-                    self.road_coord.append([(j-1)*40, (i-1)*40])
+                    self.road_coord.append([(j-1)*SPRITE, (i-1)*SPRITE])
             if command: print()
 
     def rand_position(self):
