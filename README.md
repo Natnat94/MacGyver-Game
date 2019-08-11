@@ -9,13 +9,17 @@ Ils permettront à MacGyver de créer une seringue et d'endormir notre garde.
 ![gif](demo.gif)
 
 Le jeu se joue avec les touches directionnelles.
-Si vous touchez le gardien avec moins d'un objet à la main vous mourrez
-Si vous touchez le gardien sans objet, il ne vous tuera pas
+Si vous touchez le gardien avec moins d'un objet à la main vous mourrez.
+Si vous touchez le gardien sans objet, il ne vous tuera pas.
 
 ## Installation
 
 Téléchargez le jeu à partir de Github puis installez les dépendances à partir
-du fichier "requirements":
+du fichier "requirements" ou utilisez dans votre environnement virtuel:
+
+```sh
+pipenv install
+```
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
 
