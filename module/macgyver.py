@@ -28,15 +28,15 @@ class Macgyver:
 
     def move(self, direction):
         """move to new coordinate the hero"""
-        self.new_mac_position = [self.mac_position[i] + direction[i] for i \
-          in range(len(self.mac_position))]
+        self.new_mac_position = [self.mac_position[i] + direction[i] for i
+                                 in range(len(self.mac_position))]
 
     def tools(self, objet):
         """fonction that check if there is an object and take it"""
-        if self.mac_position in objet.values():  # check if the position is in the dictionary
-            delete = []
-            for key, val in objet.items():  # loop for removing the object position in the dictionary
-                if val == self.mac_position:
+        if self.mac_position in objet.values():  # check if the position
+            delete = []                          # is in the dictionary
+            for key, val in objet.items():    # loop for removing the object
+                if val == self.mac_position:  # position in the dictionary
                     delete.append(key)
             for i in delete:
                 del objet[i]

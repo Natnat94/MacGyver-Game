@@ -14,7 +14,8 @@ class Graphic:
 
     def _load_image(self, picture):
         """load the image of the game"""
-        image = pygame.image.load(os.path.join(self.directory, "ressource", picture))
+        image = pygame.image.load(os.path.join(self.directory, "ressource",
+                                               picture))
         return image
 
     def draw_bg(self, road_coord):
@@ -31,18 +32,21 @@ class Graphic:
 
     def draw_cara(self, mac_position):
         """draw the hero into the maze"""
-        image = pygame.transform.scale(self._load_image("Macgyver.png"), (SPRITE, SPRITE))
+        image = pygame.transform.scale(self._load_image
+                                       ("Macgyver.png"), (SPRITE, SPRITE))
         self.win.blit(image, mac_position)
 
     def draw_guard(self, guard_position):
         """draw the guard into the maze"""
-        image = pygame.transform.scale(self._load_image("Gardien.png"), (SPRITE, SPRITE))
+        image = pygame.transform.scale(self._load_image
+                                       ("Gardien.png"), (SPRITE, SPRITE))
         self.win.blit(image, guard_position)
 
     def draw_tools(self, tool_coord):
         """draw the tools into the maze"""
         for key, value in tool_coord.items():
-            image = pygame.transform.scale(self._load_image(key), (SPRITE, SPRITE))
+            image = pygame.transform.scale(self._load_image
+                                           (key), (SPRITE, SPRITE))
             self.win.blit(image, value)
 
     def draw_win(self, picture):
