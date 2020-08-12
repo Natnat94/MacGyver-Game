@@ -1,4 +1,5 @@
-# Project 3
+# MacGyver PyGame
+## Project 3
 > Aidez MacGyver à s'échapper !
 
 
